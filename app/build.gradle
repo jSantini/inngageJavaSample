@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+// Adicione esta linha
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        applicationId "com.example.inngageintegrationjavasample"
+        minSdk 26
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation platform('com.google.firebase:firebase-bom:27.1.0')
+
+    // Adicione a dependência para o Firebase SDK para Google Analytics
+    // Ao usar o BoM, não especifique versões nas dependências do Firebase
+    implementation 'com.google.firebase:firebase-analytics'
+
+    //implementation 'com.github.jSantini:InngageTestsJS:3.0.4'
+    implementation 'com.github.inngage:inngage-lib:3.0.2-STABLE'
+}
