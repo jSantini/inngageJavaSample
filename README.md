@@ -2,12 +2,40 @@
 
 <p>Com a Inngage você cria facilmente comunicações personalizadas e automatizadas de acordo com o contexto de cada usuário, através dos canais: Push Notifications, SMS, In-app Messages, WhatsApp, entre outros!</p>
 
+
+
+
 [![Latest Github release](https://img.shields.io/amo/v/Badges?logo=inngage&style=plastic)](https://github.com/inngage/inngage-lib/releases/latest)
 [![Build status of the master branch on Linux/OSX](https://img.shields.io/travis/Martinsos/edlib/master?label=Linux%20%2F%20OSX%20build)](https://travis-ci.com/Martinsos/edlib)
 [![Build status of the master branch on Windows](https://img.shields.io/appveyor/build/Martinsos/edlib/master?label=Windows%20build)](https://ci.appveyor.com/project/Martinsos/edlib/branch/master)
 [![Chat on Gitter](https://img.shields.io/gitter/room/Martinsos/edlib.svg?colorB=753a88)](https://gitter.im/Martinsos/edlib)
 [![Published in Bioinformatics](https://img.shields.io/badge/Published%20in-Bioinformatics-167DA4.svg)](https://doi.org/10.1093/bioinformatics/btw753)
 =====
+
+<h2>Integrando Inngage SDK com aplicativos Android</h2>
+
+1 - Google Messaging Services & FIREBASE Services
+
+Antes de implementar a biblioteca, dentro do seu projeto no Android Studio, abra o arquivo build.gradle (Module: app) e adicione as seguintes dependências ao seu projeto.
+
+1.1 - Implemente essas dependências no arquivo build.gradle (Module: app) :
+
+
+
+## Contents
+- [Requerimentos](#features)
+- [Building](#building)
+- [Using Edlib in your project](#using-edlib-in-your-project)
+- [Usage and examples](#usage-and-examples)
+- [API documentation](#api-documentation)
+- [Alignment methods](#alignment-methods)
+- [Aligner](#aligner)
+- [Running tests](#running-tests)
+- [Time and space complexity](#time-and-space-complexity)
+- [Test data](#test-data)
+- [Development and contributing](#development-and-contributing)
+- [Publication](#publication)
+- [Acknowledgements](#acknowledgements)
 
 A lightweight and super fast C/C++ library for sequence alignment using [edit distance](https://en.wikipedia.org/wiki/Edit_distance).
 
@@ -30,20 +58,7 @@ There is also non-official [binding for Julia](https://github.com/cjdoris/Edlib.
 * **Super fast** thanks to Myers's bit-vector algorithm.
 
 
-## Contents
-- [Features](#features)
-- [Building](#building)
-- [Using Edlib in your project](#using-edlib-in-your-project)
-- [Usage and examples](#usage-and-examples)
-- [API documentation](#api-documentation)
-- [Alignment methods](#alignment-methods)
-- [Aligner](#aligner)
-- [Running tests](#running-tests)
-- [Time and space complexity](#time-and-space-complexity)
-- [Test data](#test-data)
-- [Development and contributing](#development-and-contributing)
-- [Publication](#publication)
-- [Acknowledgements](#acknowledgements)
+
 
 
 ## Building
@@ -104,15 +119,20 @@ To get you started quickly, let's take a look at a few ways to get simple Hello 
 
 Our Hello World project has just one source file, `helloWorld.cpp` file, and it looks like this:
 ```cpp
-#include <cstdio>
-#include "edlib.h"
+apply plugin: 'com.android.application'
+// Adicione esta linha
+apply plugin: 'com.google.gms.google-services'
 
-int main() {
-    EdlibAlignResult result = edlibAlign("hello", 5, "world!", 6, edlibDefaultAlignConfig());
-    if (result.status == EDLIB_STATUS_OK) {
-        printf("edit_distance('hello', 'world!') = %d\n", result.editDistance);
-    }
-    edlibFreeAlignResult(result);
+dependencies {
+  // Importe o Firebase BoM
+  implementation platform('com.google.firebase:firebase-bom:27.1.0')
+
+  // Adicione a dependência para o Firebase SDK para Google Analytics
+  // Ao usar o BoM, não especifique versões nas dependências do Firebase
+  implementation 'com.google.firebase:firebase-analytics'
+
+  // Adicione as dependências para qualquer outro produto Firebase desejado
+  
 }
 ```
 
