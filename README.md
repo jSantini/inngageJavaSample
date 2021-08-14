@@ -1,7 +1,8 @@
-&middot; Inngage - Plataforma de EngajamentoMobile First
+<h1>Inngage - Plataforma de Engajamento Mobile First</h1>
 
+<p>Com a Inngage você cria facilmente comunicações personalizadas e automatizadas de acordo com o contexto de cada usuário, através dos canais: Push Notifications, SMS, In-app Messages, WhatsApp, entre outros!</p>
 
-[![Latest Github release](https://img.shields.io/amo/v/https://github.com/inngage/inngage-lib/releases/latest?label=release&logo=3.0.2-STABLE&style=plastic)](https://github.com/inngage/inngage-lib/releases/latest)
+[![Latest Github release](https://img.shields.io/amo/v/Badges?logo=inngage&style=plastic)](https://github.com/inngage/inngage-lib/releases/latest)
 [![Build status of the master branch on Linux/OSX](https://img.shields.io/travis/Martinsos/edlib/master?label=Linux%20%2F%20OSX%20build)](https://travis-ci.com/Martinsos/edlib)
 [![Build status of the master branch on Windows](https://img.shields.io/appveyor/build/Martinsos/edlib/master?label=Windows%20build)](https://ci.appveyor.com/project/Martinsos/edlib/branch/master)
 [![Chat on Gitter](https://img.shields.io/gitter/room/Martinsos/edlib.svg?colorB=753a88)](https://gitter.im/Martinsos/edlib)
