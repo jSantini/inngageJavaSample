@@ -2,12 +2,14 @@ package com.example.inngageintegrationjavasample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 
-import br.com.inngage.sdk.InngageIntentService;
-import br.com.inngage.sdk.InngageUtils;
-
+import com.example.inngageintegrationjavasample.libs.InngageIntentService;
+import com.example.inngageintegrationjavasample.libs.InngageUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         handleSubscription();
-
     }
 
     private void handleSubscription() {
@@ -28,9 +29,13 @@ public class MainActivity extends AppCompatActivity {
         String myInngageEnvironment = InngageConstants.inngageEnvironment;
         String myGoogleMessageProvider = InngageConstants.googleMessageProvider;
 
-        // caso o app possua campos customizáveis, descomente estas linhas, cheque-os na plataforma, substitua-os abaixo e adicione os valores de acordo com a sua aplicação
-//        JSONObject jsonCustomField = new JSONObject();
-//
+        /*
+
+        Caso o app possua campos customizáveis, descomente estas linhas, cheque-os na plataforma, substitua-os abaixo e adicione os valores de acordo com a sua aplicação
+        JSONObject jsonCustomField = new JSONObject();
+
+        */
+
 //        try {
 //
 //            jsonCustomField.put("nome", user.name);
@@ -64,5 +69,4 @@ public class MainActivity extends AppCompatActivity {
 
         InngageUtils.handleNotification(this, getIntent(), myInngageAppToken, myInngageEnvironment);
     }
-
 }
